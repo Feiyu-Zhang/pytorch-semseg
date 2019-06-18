@@ -44,7 +44,7 @@ class pascalVOCLoader(data.Dataset):
     def __init__(
         self,
         root,
-        sbd_path=None,
+        sbd_path='/nfs1/zhangfeiyu/git/data/benchmark_RELEASE', # zfy
         split="train_aug",
         is_transform=False,
         img_size=512,
@@ -196,6 +196,7 @@ class pascalVOCLoader(data.Dataset):
         target_path = pjoin(self.root, "SegmentationClass/pre_encoded")
         if not os.path.exists(target_path):
             os.makedirs(target_path)
+        # print('zfy','sbd_path',sbd_path)
         path = pjoin(sbd_path, "dataset/train.txt")
         sbd_train_list = tuple(open(path, "r"))
         sbd_train_list = [id_.rstrip() for id_ in sbd_train_list]
